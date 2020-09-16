@@ -1,0 +1,24 @@
+---
+layout: post
+title: "resume"
+date: 2020-09-16 10:59:12 +0800
+comments: true
+categories: 
+---
+
+
+## 基本信息
+
+    姓名：倪燕珠
+    出生日期：1994-07-01
+
+## 联系方式
+
+    WeChat：niyanzhu007
+    Tel：15768980701
+    github：https://github.com/pearlNi
+
+## 工作经历
+
+    2016 - 2017： 前端工程师  广州动创信息科技有限公司（实习）
+    2018 - 至今： 测试工程师  上海微创股份有限公司（驻场广州腾讯微信总部）  
