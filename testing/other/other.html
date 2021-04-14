@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+  </head>
+  <body>
+    <div style="position:fixed;background-color:red;">fixed element2</div>
+    <div>
+      当前hash：<span id="currentHash"></span>
+      <button class="weui-btn weui-btn_primary" id="changeHash1">changeHash1</button>
+      <script>
+        document.getElementById('currentHash').innerHTML = location.hash
+        document.getElementById('changeHash1').addEventListener('click', function() {
+          location.hash = 'hashAfterChange'
+          document.getElementById('currentHash').innerHTML = location.hash
+        })
+      </script>
+    </div>
+    <div>1111</div>
+    <div>11112222</div>
+    <div><script>document.write(localStorage.getItem('reLaunch'));</script><</div>
+    <div><script>document.write(navigator.userAgent);</script><</div>
+    <button class="weui-btn weui-btn_primary" id="share">分享</button>
+    <button class="weui-btn weui-btn_primary" id="pushState">pushState后无权限？</button>
+    <button class="weui-btn weui-btn_primary" id="replaceState">replaceState</button>
+    <button class="weui-btn weui-btn_primary" onclick="alert(123)" id="alert">alert</button>
+    <button class="weui-btn weui-btn_primary" onclick="window.close()">close退出小程序</button>
+      <a href="index2.html" class="weui-btn weui-btn_primary">index2.html</a>
+    <input type="text" value="/page/component/pages/map/map" style="width: 100%;border: 1px solid gray;height: 44px;" />
+    <br>
+
+    <h3>测试iframe</h3>
+    <span class="desc">iframe内嵌的页面正常展示</span><br>
+    <iframe id="mapPage" width="100%" height="100%" frameborder=0 src="https://apis.map.qq.com/tools/locpicker?search=1&type=1&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp">
+    </iframe> 
+    <button class="weui-btn weui-btn_primary" id="logLocation">location.href</button>
+
+    <h3>测试input</h3>
+    <span class="desc">聚焦input后，点击按钮键盘收起</span><br>
+    <input class="weui-input" style="border:1px solid red;margin-bottom: 10px;" type="text" placeholder="点我聚焦" >
+    <button class="weui-btn weui-btn_primary"  id="clickHideKeyboard">点我收起键盘</button>
+    <span class="desc">点击选择文件正常选择系统图片/视频</span><br>
+    <input  type="file" name="">
+    
+    <h3>测试image</h3>
+    <span class="desc">图片正常展示</span><br>
+    <img  src="../images/wechatHL.png">
+</body>
+
+<script src="../js/jweixin-1.6.0.js"></script>
+<script src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="https://res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/2.5.1/vconsole.min.js"></script>
+<script type="text/javascript">
+    var count = 0
+    document.body.addEventListener('touchstart', function() {
+        count++
+        console.log('click count', count)
+    })
+
+    if (location.href.indexOf('redirect=1') > -1) {
+        wx.miniProgram.navigateTo({url: '/components/video/video'})
+    }
+
+    window.onload = function() {  
+        document.querySelector('input').value = localStorage.getItem('path') || '/page/component/pages/map/map'
+    }
+
+    document.querySelector('input').onkeypress = function() {
+        console.log('keypress', e)
+    }
+
+    document.querySelector('input').addEventListener('input', function(e) {
+        console.log('input', e)
+        var val = document.querySelector('input').value
+        localStorage.setItem('path', val)
+    })
+
+    document.getElementById('pushState').addEventListener('click', function() {
+        console.log('pushState')
+        history.pushState(null, 'helloworld', "index2.html");
+        alert('push state complete');
+    });
+
+    document.getElementById('clickHideKeyboard').addEventListener('click', function(e) {
+        console.log('clickHideKeyboard');
+        e.stopPropagation();
+        e.preventDefault();
+        console.log('clickHideKeyboard after');
+    });
+
+    document.getElementById('share').addEventListener('click', function() {
+        console.log('invokeMiniProgramAPI share')
+        WeixinJSBridge.invoke('invokeMiniProgramAPI', {
+            name: 'share',
+            arg: {
+            title: 'title',
+            desc: 'desc',
+            path: '/components/index',
+            }
+        })
+    })
+    document.getElementById('logLocation').addEventListener('click', function() {
+        console.log(location.href)
+        alert('当前页面地址'+ location.href);
+    })
+        window.onhashchange = function() {
+        console.log('hashchange', location.hash)
+        }
+    document.getElementById('changeHash').addEventListener('click', function() {
+        location.hash = location.hash.replace('#', '') === 'a' ? 'b' : 'a'
+    })
+
+    document.getElementById('replaceState').addEventListener('click', function() {
+        history.replaceState(null, "index2", "index2.html");
+        console.log('replace state complete');
+    })
+
+    wx.miniProgram.onLifeCycleEvent(function(res) {
+        // alert('receive data' + JSON.stringify(res));
+        console.log("onDataFromAppService", res);
+    })
+    document.addEventListener('WeixinJSBridgeReady', function() {
+        WeixinJSBridge.on('onPageStateChange', function(res) {
+            console.log('onPageStateChange', res)
+        })
+        WeixinJSBridge.on("onDataFromAppService", function(res) {
+            console.log("onDataFromAppService", res);
+        });
+        }, false);
+        window.setInterval(function() {
+        console.log('in inertval', Date.now())
+        }, 2000)
+</script>
+    
