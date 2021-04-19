@@ -8,6 +8,7 @@ html {
     line-height: 1.6;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-color: #f1f0f6;
+    padding: 15px 0;
   }
   * {
     margin: 0;
