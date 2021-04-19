@@ -42,7 +42,6 @@ wx.ready(function () {
       wx.miniProgram.postMessage({data: 'postmsg ok' })
   };
   // 0.6获取当前环境
-示例代码
   document.querySelector('#getEnvBtn').onclick = function () {
       wx.miniProgram.getEnv(function(res) { 
 	let resmini = res.miniprogram
@@ -52,28 +51,28 @@ wx.ready(function () {
   };
 
 
-  document.querySelector('#pushStateBtn').onclick = function () {
-    window.history.pushState({}, "pushStateTitle", "afterPushState")
-  };
+  // document.querySelector('#pushStateBtn').onclick = function () {
+  //   window.history.pushState({}, "pushStateTitle", "afterPushState")
+  // };
 
-  document.querySelector('#setCookieBtn').onclick = function () {
-    document.cookie = "test=wechattest"
-    alert("you have set a cookie: wechattest")
-  };
+  // document.querySelector('#setCookieBtn').onclick = function () {
+  //   document.cookie = "test=wechattest"
+  //   alert("you have set a cookie: wechattest")
+  // };
 
-  document.querySelector('#getCookieBtn').onclick = function () {
-    var myCookie = document.cookie.replace(/(?:(?:^|.*;\s*)test\s*\=\s*([^;]*).*$)|^.*$/, "$1")
-    alert("cookie test values: "+myCookie)
-  };
+  // document.querySelector('#getCookieBtn').onclick = function () {
+  //   var myCookie = document.cookie.replace(/(?:(?:^|.*;\s*)test\s*\=\s*([^;]*).*$)|^.*$/, "$1")
+  //   alert("cookie test values: "+myCookie)
+  // };
 
-  document.querySelector('#launchApplication').onclick = function () {
-    wx.invoke('launchApplication', {"appID":"wxidXXXXX", "extInfo":"xx", "parameter" : "param"},function(res) {
-        alert(JSON.stringify(res))
-    });
-    /*wx.invoke('launchApplication', {"schemeUrl":"mapp://articleid=222"},function(res) {
-        alert(JSON.stringify(res))
-    });*/
-  };
+  // document.querySelector('#launchApplication').onclick = function () {
+  //   wx.invoke('launchApplication', {"appID":"wxidXXXXX", "extInfo":"xx", "parameter" : "param"},function(res) {
+  //       alert(JSON.stringify(res))
+  //   });
+  //   /*wx.invoke('launchApplication', {"schemeUrl":"mapp://articleid=222"},function(res) {
+  //       alert(JSON.stringify(res))
+  //   });*/
+  // };
 
   // 1 判断当前版本是否支持指定 JS 接口，支持批量判断
   document.querySelector('#checkJsApi').onclick = function () {
