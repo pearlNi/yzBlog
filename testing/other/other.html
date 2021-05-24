@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
   </head>
   <body>
-    <div style="position:fixed;background-color:red;">fixed element2</div>
+    <div style="position:fixed;background-color:red;">fixed element2，滚动页面位置不变</div>
     <div>
       当前hash：<span id="currentHash"></span>
       <button class="weui-btn weui-btn_primary" id="changeHash1">changeHash1</button>
@@ -20,35 +20,49 @@
         })
       </script>
     </div>
-    <div>1111</div>
-    <div>11112222</div>
     <div><script>document.write(localStorage.getItem('reLaunch'));</script><</div>
     <div><script>document.write(navigator.userAgent);</script><</div>
-    <button class="weui-btn weui-btn_primary" id="share">分享</button>
-    <button class="weui-btn weui-btn_primary" id="pushState">pushState后无权限？</button>
+
+    <h3>测试pushState</h3>
+    <span class="desc">点击按钮后，当前地址发生改变，但不发生跳转，当前页其他功能均正常</span><br>
+    <button class="weui-btn weui-btn_primary" id="pushState">pushState</button>
+
+    <h3>获取当前页面地址</h3>
+    <span class="desc">点击弹出当前页面地址</span><br>
+    <button class="weui-btn weui-btn_primary" id="logLocation">location.href</button>
+    <div id="currentUrl" style="word-break: break-all;"></div>
+
     <button class="weui-btn weui-btn_primary" id="replaceState">replaceState</button>
     <button class="weui-btn weui-btn_primary" onclick="alert(123)" id="alert">alert</button>
     <button class="weui-btn weui-btn_primary" onclick="window.close()">close退出小程序</button>
-      <a href="index2.html" class="weui-btn weui-btn_primary">index2.html</a>
-    <input type="text" value="/page/component/pages/map/map" style="width: 100%;border: 1px solid gray;height: 44px;" />
-    <br>
+    <h3>测试跳转</h3>
+    <span class="desc">跳转到指定页面</span><br>
+    <a href="../backgroundAudio/backgroundAudio.html" class="weui-btn weui-btn_primary">backgroundAudio.html</a>
 
     <h3>测试iframe</h3>
     <span class="desc">iframe内嵌的页面正常展示</span><br>
-    <iframe id="mapPage" width="100%" height="100%" frameborder=0 src="https://apis.map.qq.com/tools/locpicker?search=1&type=1&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp">
+    <iframe id="mapPage" width="100%" height="100px" frameborder=0 src="https://apis.map.qq.com/tools/locpicker?search=1&type=1&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp">
     </iframe> 
-    <button class="weui-btn weui-btn_primary" id="logLocation">location.href</button>
+    
 
-    <h3>测试input</h3>
+    <h3>测试input聚焦/失焦</h3>
     <span class="desc">聚焦input后，点击按钮键盘收起</span><br>
     <input class="weui-input" style="border:1px solid red;margin-bottom: 10px;" type="text" placeholder="点我聚焦" >
     <button class="weui-btn weui-btn_primary"  id="clickHideKeyboard">点我收起键盘</button>
+
+    <h3>测试input[type='file']</h3>
     <span class="desc">点击选择文件正常选择系统图片/视频</span><br>
     <input  type="file" name="">
     
     <h3>测试image</h3>
     <span class="desc">图片正常展示</span><br>
     <img  src="../images/wechatHL.png">
+
+    <h3>测试二维码、小程序码</h3>
+    <span class="desc">长按功能正常</span><br>
+    <img  src="../images/erweima.png" width="100%"><br>
+    <img  src="../images/music.jpg" width="100%"><br>
+    <img  src="../images/game.jpg" width="100%">
 </body>
 
 <script src="../js/jweixin-1.6.0.js"></script>
@@ -81,9 +95,15 @@
 
     document.getElementById('pushState').addEventListener('click', function() {
         console.log('pushState')
-        history.pushState(null, 'helloworld', "index2.html");
+        history.pushState(null, 'backgroundAudio', "../backgroundAudio/backgroundAudio.html");
         alert('push state complete');
     });
+
+    document.getElementById('replaceState').addEventListener('click', function() {
+        console.log('replace state complete');
+        history.replaceState(null, "backgroundAudio", "../backgroundAudio/backgroundAudio.html");
+        
+    })
 
     document.getElementById('clickHideKeyboard').addEventListener('click', function(e) {
         console.log('clickHideKeyboard');
@@ -106,17 +126,13 @@
     document.getElementById('logLocation').addEventListener('click', function() {
         console.log(location.href)
         alert('当前页面地址'+ location.href);
+        // document.getElementById('currentUrl').innerHTML = location.href;
     })
         window.onhashchange = function() {
         console.log('hashchange', location.hash)
         }
     document.getElementById('changeHash').addEventListener('click', function() {
         location.hash = location.hash.replace('#', '') === 'a' ? 'b' : 'a'
-    })
-
-    document.getElementById('replaceState').addEventListener('click', function() {
-        history.replaceState(null, "index2", "index2.html");
-        console.log('replace state complete');
     })
 
     wx.miniProgram.onLifeCycleEvent(function(res) {
@@ -135,4 +151,5 @@
         console.log('in inertval', Date.now())
         }, 2000)
 </script>
-    
+
+</html>
