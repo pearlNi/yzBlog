@@ -39,9 +39,9 @@
     <span class="desc">跳转到指定页面</span><br>
     <a href="../backgroundAudio/backgroundAudio.html" class="weui-btn weui-btn_primary">backgroundAudio.html</a>
 
-    <h3>测试分享</h3>
+    <!-- <h3>测试分享</h3>
     <span class="desc">分享到会话</span><br>
-    <button class="weui-btn weui-btn_primary" id="share">分享</button>
+    <button class="weui-btn weui-btn_primary" id="share">分享</button> -->
 
     <h3>测试iframe</h3>
     <span class="desc">iframe内嵌的页面正常展示</span><br>
@@ -83,9 +83,9 @@
         wx.miniProgram.navigateTo({url: '/components/video/video'})
     }
 
-    window.onload = function() {  
-        document.querySelector('input').value = localStorage.getItem('path') || '/page/component/pages/map/map'
-    }
+    // window.onload = function() {  
+    //     document.querySelector('input').value = localStorage.getItem('path') || '/page/component/pages/map/map'
+    // }
 
     document.querySelector('input').onkeypress = function() {
         console.log('keypress', e)
