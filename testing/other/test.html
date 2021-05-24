@@ -1,0 +1,210 @@
+<html><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
+    <script type="text/javascript" src="https://cunjinli6.github.io/jWeixin.js?t=4"></script>
+  <style type="text/css">#__vconsole{color:#000;font-size:13px;font-family:Helvetica Neue,Helvetica,Arial,sans-serif}#__vconsole .vc-max-height{max-height:250px}#__vconsole .vc-max-height-line{max-height:44px}#__vconsole .vc-min-height{min-height:40px}#__vconsole .vc-switch{display:block;position:fixed;right:10px;bottom:10px;color:#fff;background-color:#04be02;line-height:1;font-size:14px;padding:8px 16px;z-index:10000;border-radius:4px;box-shadow:0 0 8px rgba(0,0,0,.4)}#__vconsole .vc-mask{top:0;background:transparent;z-index:10001;transition:background .3s;-webkit-tap-highlight-color:transparent;overflow-y:scroll}#__vconsole .vc-mask,#__vconsole .vc-panel{display:none;position:fixed;left:0;right:0;bottom:0}#__vconsole .vc-panel{min-height:85%;z-index:10002;background-color:#efeff4;-webkit-transition:-webkit-transform .3s;transition:-webkit-transform .3s;transition:transform .3s;transition:transform .3s,-webkit-transform .3s;-webkit-transform:translateY(100%);transform:translateY(100%)}#__vconsole .vc-tabbar{border-bottom:1px solid #d9d9d9;overflow-x:auto;height:39px;width:auto;white-space:nowrap}#__vconsole .vc-tabbar .vc-tab{display:inline-block;line-height:39px;padding:0 15px;border-right:1px solid #d9d9d9;text-decoration:none;color:#000;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none}#__vconsole .vc-tabbar .vc-tab:active{background-color:rgba(0,0,0,.15)}#__vconsole .vc-tabbar .vc-tab.vc-actived{background-color:#fff}#__vconsole .vc-content{background-color:#fff;overflow-x:hidden;overflow-y:auto;position:absolute;top:40px;left:0;right:0;bottom:40px;-webkit-overflow-scrolling:touch}#__vconsole .vc-content.vc-has-topbar{top:71px}#__vconsole .vc-topbar{background-color:#fbf9fe;display:flex;display:-webkit-box;flex-direction:row;flex-wrap:wrap;-webkit-box-direction:row;-webkit-flex-wrap:wrap;width:100%}#__vconsole .vc-topbar .vc-toptab{display:none;flex:1;-webkit-box-flex:1;line-height:30px;padding:0 15px;border-bottom:1px solid #d9d9d9;text-decoration:none;text-align:center;color:#000;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none}#__vconsole .vc-topbar .vc-toptab.vc-toggle{display:block}#__vconsole .vc-topbar .vc-toptab:active{background-color:rgba(0,0,0,.15)}#__vconsole .vc-topbar .vc-toptab.vc-actived{border-bottom:1px solid #3e82f7}#__vconsole .vc-logbox{display:none;position:relative;min-height:100%}#__vconsole .vc-logbox i{font-style:normal}#__vconsole .vc-logbox .vc-log{-webkit-tap-highlight-color:transparent}#__vconsole .vc-logbox .vc-log:empty:before{content:"Empty";color:#999;position:absolute;top:45%;left:0;right:0;bottom:0;font-size:15px;text-align:center}#__vconsole .vc-logbox .vc-item{margin:0;padding:6px 8px;overflow:hidden;line-height:1.3;border-bottom:1px solid #eee;word-break:break-word}#__vconsole .vc-logbox .vc-item-info{color:#6a5acd}#__vconsole .vc-logbox .vc-item-debug{color:#daa520}#__vconsole .vc-logbox .vc-item-warn{color:orange;border-color:#ffb930;background-color:#fffacd}#__vconsole .vc-logbox .vc-item-error{color:#dc143c;border-color:#f4a0ab;background-color:#ffe4e1}#__vconsole .vc-logbox .vc-log.vc-log-partly .vc-item{display:none}#__vconsole .vc-logbox .vc-log.vc-log-partly-error .vc-item-error,#__vconsole .vc-logbox .vc-log.vc-log-partly-info .vc-item-info,#__vconsole .vc-logbox .vc-log.vc-log-partly-log .vc-item-log,#__vconsole .vc-logbox .vc-log.vc-log-partly-warn .vc-item-warn{display:block}#__vconsole .vc-logbox .vc-item .vc-item-content{margin-right:60px;display:block}#__vconsole .vc-logbox .vc-item .vc-item-meta{color:#888;float:right;width:60px;text-align:right}#__vconsole .vc-logbox .vc-item.vc-item-nometa .vc-item-content{margin-right:0}#__vconsole .vc-logbox .vc-item.vc-item-nometa .vc-item-meta{display:none}#__vconsole .vc-logbox .vc-item .vc-item-code{display:block;white-space:pre-wrap;overflow:auto;position:relative}#__vconsole .vc-logbox .vc-item .vc-item-code.vc-item-code-input,#__vconsole .vc-logbox .vc-item .vc-item-code.vc-item-code-output{padding-left:12px}#__vconsole .vc-logbox .vc-item .vc-item-code.vc-item-code-input:before,#__vconsole .vc-logbox .vc-item .vc-item-code.vc-item-code-output:before{content:"\203A";position:absolute;top:-3px;left:0;font-size:16px;color:#6a5acd}#__vconsole .vc-logbox .vc-item .vc-item-code.vc-item-code-output:before{content:"\2039"}#__vconsole .vc-logbox .vc-item .vc-fold{display:block;overflow:auto;-webkit-overflow-scrolling:touch}#__vconsole .vc-logbox .vc-item .vc-fold .vc-fold-outer{display:block;font-style:italic;padding-left:10px;position:relative}#__vconsole .vc-logbox .vc-item .vc-fold .vc-fold-outer:active{background-color:#e6e6e6}#__vconsole .vc-logbox .vc-item .vc-fold .vc-fold-outer:before{content:"";position:absolute;top:4px;left:2px;width:0;height:0;border:4px solid transparent;border-left-color:#000}#__vconsole .vc-logbox .vc-item .vc-fold .vc-fold-outer.vc-toggle:before{top:6px;left:0;border-top-color:#000;border-left-color:transparent}#__vconsole .vc-logbox .vc-item .vc-fold .vc-fold-inner{display:none;margin-left:10px}#__vconsole .vc-logbox .vc-item .vc-fold .vc-fold-inner.vc-toggle{display:block}#__vconsole .vc-logbox .vc-item .vc-fold .vc-fold-inner .vc-code-key{margin-left:10px}#__vconsole .vc-logbox .vc-item .vc-fold .vc-fold-outer .vc-code-key{margin-left:0}#__vconsole .vc-logbox .vc-code-key{color:#905}#__vconsole .vc-logbox .vc-code-private-key{color:#d391b5}#__vconsole .vc-logbox .vc-code-function{color:#905;font-style:italic}#__vconsole .vc-logbox .vc-code-boolean,#__vconsole .vc-logbox .vc-code-number{color:#0086b3}#__vconsole .vc-logbox .vc-code-string{color:#183691}#__vconsole .vc-logbox .vc-code-null,#__vconsole .vc-logbox .vc-code-undefined{color:#666}#__vconsole .vc-logbox .vc-cmd{position:absolute;height:40px;left:0;right:0;bottom:0;border-top:1px solid #d9d9d9;display:block!important}#__vconsole .vc-logbox .vc-cmd .vc-cmd-input-wrap{display:block;height:28px;margin-right:40px;padding:6px 8px}#__vconsole .vc-logbox .vc-cmd .vc-cmd-input{width:100%;border:none;resize:none;outline:none;padding:0;font-size:12px}#__vconsole .vc-logbox .vc-cmd .vc-cmd-input::-webkit-input-placeholder{line-height:28px}#__vconsole .vc-logbox .vc-cmd .vc-cmd-btn{position:absolute;top:0;right:0;bottom:0;width:40px;border:none;background-color:#efeff4;outline:none;-webkit-touch-callout:none}#__vconsole .vc-logbox .vc-cmd .vc-cmd-btn:active{background-color:rgba(0,0,0,.15)}#__vconsole .vc-logbox .vc-group .vc-group-preview{-webkit-touch-callout:none}#__vconsole .vc-logbox .vc-group .vc-group-preview:active{background-color:#e6e6e6}#__vconsole .vc-logbox .vc-group .vc-group-detail{display:none;padding:0 0 10px 20px;border-bottom:1px solid #eee}#__vconsole .vc-logbox .vc-group.vc-actived .vc-group-detail{display:block}#__vconsole .vc-logbox .vc-table .vc-table-row{display:flex;display:-webkit-flex;flex-direction:row;flex-wrap:wrap;-webkit-box-direction:row;-webkit-flex-wrap:wrap;overflow:hidden;border-bottom:1px solid #eee}#__vconsole .vc-logbox .vc-table .vc-table-row.vc-left-border{border-left:1px solid #eee}#__vconsole .vc-logbox .vc-table .vc-table-col{flex:1;-webkit-box-flex:1;padding:3px 4px;border-left:1px solid #eee;overflow:auto;white-space:pre-wrap;word-break:break-word;-webkit-overflow-scrolling:touch}#__vconsole .vc-logbox .vc-table .vc-table-col:first-child{border:none}#__vconsole .vc-logbox .vc-table .vc-small .vc-table-col{padding:0 4px;font-size:12px}#__vconsole .vc-logbox .vc-table .vc-table-col-2{flex:2;-webkit-box-flex:2}#__vconsole .vc-logbox .vc-table .vc-table-col-3{flex:3;-webkit-box-flex:3}#__vconsole .vc-logbox .vc-table .vc-table-col-4{flex:4;-webkit-box-flex:4}#__vconsole .vc-logbox .vc-table .vc-table-col-5{flex:5;-webkit-box-flex:5}#__vconsole .vc-logbox .vc-table .vc-table-col-6{flex:6;-webkit-box-flex:6}#__vconsole .vc-logbox .vc-table .vc-table-row-error{border-color:#f4a0ab;background-color:#ffe4e1}#__vconsole .vc-logbox .vc-table .vc-table-row-error .vc-table-col{color:#dc143c;border-color:#f4a0ab}#__vconsole .vc-logbox .vc-table .vc-table-col-title{font-weight:700}#__vconsole .vc-logbox.vc-actived{display:block}#__vconsole .vc-toolbar{border-top:1px solid #d9d9d9;line-height:39px;position:absolute;left:0;right:0;bottom:0;display:flex;display:-webkit-box;flex-direction:row;-webkit-box-direction:row}#__vconsole .vc-toolbar .vc-tool{display:none;text-decoration:none;color:#000;width:50%;flex:1;-webkit-box-flex:1;text-align:center;position:relative;-webkit-touch-callout:none}#__vconsole .vc-toolbar .vc-tool.vc-global-tool,#__vconsole .vc-toolbar .vc-tool.vc-toggle{display:block}#__vconsole .vc-toolbar .vc-tool:active{background-color:rgba(0,0,0,.15)}#__vconsole .vc-toolbar .vc-tool:after{content:" ";position:absolute;top:7px;bottom:7px;right:0;border-left:1px solid #d9d9d9}#__vconsole .vc-toolbar .vc-tool-last:after{border:none}#__vconsole.vc-toggle .vc-switch{display:none}#__vconsole.vc-toggle .vc-mask{background:rgba(0,0,0,.6);display:block}#__vconsole.vc-toggle .vc-panel{-webkit-transform:translate(0);transform:translate(0)}</style></head>
+  <body>
+    <div style="position:fixed;background-color:red;">fixed element2</div>
+    <div>
+      当前hash：<span id="currentHash"></span>
+      <button class="weui-btn weui-btn_primary" id="changeHash1">changeHash1</button>
+      <script>
+        document.getElementById('currentHash').innerHTML = location.hash
+        document.getElementById('changeHash1').addEventListener('click', function() {
+          location.hash = 'hashAfterChange'
+          document.getElementById('currentHash').innerHTML = location.hash
+        })
+      </script>
+    </div>
+    <div>1111</div>
+    <div>11112222</div>
+    <div><script>document.write(localStorage.getItem('reLaunch'));</script>null&lt;</div>
+    <div><script>document.write(navigator.userAgent);</script>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36&lt;</div>
+    <button class="weui-btn weui-btn_primary" id="navigateBack">navigateBack</button>
+    <button class="weui-btn weui-btn_primary" id="navigateTo">navigateTo</button>
+    <button class="weui-btn weui-btn_primary" id="switchTab">switchTab</button>
+    <button class="weui-btn weui-btn_primary" id="reLaunch">reLaunch</button>
+    <button class="weui-btn weui-btn_primary" id="redirectTo">redirectTo</button>
+    <button class="weui-btn weui-btn_primary" id="postMessage">postMessage</button>
+    <button class="weui-btn weui-btn_primary" id="getEnv">getEnv</button>
+    <button class="weui-btn weui-btn_primary" id="share">分享</button>
+    <button class="weui-btn weui-btn_primary" id="pushState">pushState后无权限？</button>
+    <button class="weui-btn weui-btn_primary" id="replaceState">replaceState</button>
+    <button class="weui-btn weui-btn_primary" onclick="alert(123)" id="alert">alert</button>
+    <button class="weui-btn weui-btn_primary" onclick="window.close()">close退出小程序</button>
+      <a href="index2.html" class="weui-btn weui-btn_primary">index2.html</a>
+    <input type="text" value="/page/component/pages/map/map" style="width: 100%;border: 1px solid gray;height: 44px;">
+    <br>
+    <iframe id="mapPage" width="100%" height="100%" frameborder="0" src="https://apis.map.qq.com/tools/locpicker?search=1&amp;type=1&amp;key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&amp;referer=myapp">
+    </iframe> 
+    <button class="weui-btn weui-btn_primary" id="logLocation">location.href</button>
+    <br>
+    <button class="weui-btn weui-btn_primary" id="changeHash">change hash</button>
+    <br>
+    <input type="file" name="">
+    <br>
+    <a href="javascript:;" id="clickHideKeyboard">点击收起键盘</a>
+    <br>
+    <input type="text" placeholder="测试一下触摸页面安卓的键盘是否会自动收起">
+    <!-- <img style="width: 90%;" src="./weapp.jpg"> -->
+    <!-- <img src="./boast/fu.png"> -->
+
+    <button class="weui-btn weui-btn_primary" id="chooseImage">chooseImage</button>
+    <img id="chooseImageResult" src="">
+</body>
+
+    <script type="text/javascript">
+      var count = 0
+      document.body.addEventListener('touchstart', function() {
+        count++
+        console.log('click count', count)
+      })
+      if (location.href.indexOf('redirect=1') > -1) {
+        wx.miniProgram.navigateTo({url: '/components/video/video'})
+      }
+      window.onload = function() {  
+        document.querySelector('input').value = localStorage.getItem('path') || '/page/component/pages/map/map'
+      }
+      document.querySelector('input').onkeypress = function() {
+        console.log('keypress', e)
+      }
+      document.querySelector('input').addEventListener('input', function(e) {
+        console.log('input', e)
+        var val = document.querySelector('input').value
+        localStorage.setItem('path', val)
+      })
+      document.getElementById('navigateBack').addEventListener('click', function() {
+        console.log('invokeMiniProgramAPI navigateBack')
+        alert('alert before navigateBack');
+        wx.miniProgram.navigateBack({
+          complete: function(res) {
+            alert('nav back res' + JSON.stringify(res))
+          }
+        })
+      });
+      document.getElementById('navigateTo').addEventListener('click', function() {
+        console.log('invokeMiniProgramAPI navigateTo')
+//         alert('alert before navigateTo');
+        wx.miniProgram.navigateTo({
+          url: '/pages/picker/picker',
+          complete: function(res) {
+            console.log('complete res')
+          }
+        })
+      });
+      document.getElementById('pushState').addEventListener('click', function() {
+        console.log('pushState')
+        history.pushState(null, 'helloworld', "index2.html");
+        alert('push state complete');
+      });
+      document.getElementById('clickHideKeyboard').addEventListener('click', function(e) {
+        console.log('clickHideKeyboard');
+        e.stopPropagation();
+        e.preventDefault();
+        console.log('clickHideKeyboard after');
+      });
+      document.getElementById('switchTab').addEventListener('click', function() {
+        console.log('invokeMiniProgramAPI switchTab')
+        wx.miniProgram.switchTab({
+          url: document.querySelector('input').value,
+          complete: function(res) {
+            console.log('complete res')
+          }
+        })
+      });
+      document.getElementById('reLaunch').addEventListener('click', function() {
+        console.log('invokeMiniProgramAPI reLaunch')
+        wx.miniProgram.reLaunch({
+          url: document.querySelector('input').value,
+          fail: function(res) {
+            localStorage.setItem('reLaunch', JSON.stringify(res) + 'fail');
+          },
+          success: function(res) {
+            localStorage.setItem('reLaunch', JSON.stringify(res) + "success");
+          },
+          complete: function(res) {
+            console.log('complete res', res, '1')
+          }
+        })
+      });
+      document.getElementById('redirectTo').addEventListener('click', function() {
+        console.log('invokeMiniProgramAPI redirectTo')
+        wx.miniProgram.redirectTo({
+          url: document.querySelector('input').value,
+          complete: function(res) {
+            console.log('complete res')
+          }
+        })
+      });
+      document.getElementById('postMessage').addEventListener('click', function() {
+        console.log('invokeMiniProgramAPI postMessage')
+        wx.miniProgram.postMessage({
+          data: {foo: 'bar', timeStamp: Date.now()},
+          complete: function(res) {
+            console.log(res)
+          }
+        })
+      })
+      document.getElementById('getEnv').addEventListener('click', function() {
+        console.log('invokeMiniProgramAPI getEnv')
+        wx.miniProgram.getEnv(function(res) {
+          console.log(res)
+        })
+      })
+      document.getElementById('share').addEventListener('click', function() {
+        console.log('invokeMiniProgramAPI share')
+        WeixinJSBridge.invoke('invokeMiniProgramAPI', {
+          name: 'share',
+          arg: {
+            title: 'title',
+            desc: 'desc',
+            path: '/components/index',
+          }
+        })
+      })
+      document.getElementById('logLocation').addEventListener('click', function() {
+        console.log(location.href)
+      })
+      window.onhashchange = function() {
+        console.log('hashchange', location.hash)
+      }
+      document.getElementById('changeHash').addEventListener('click', function() {
+        location.hash = location.hash.replace('#', '') === 'a' ? 'b' : 'a'
+      })
+
+      document.getElementById('replaceState').addEventListener('click', function() {
+        history.replaceState(null, "index2", "index2.html");
+        console.log('replace state complete');
+      })
+  document.querySelector('#chooseImage').onclick = function () {
+    console.log('chooseImage')
+    wx.chooseImage({
+      fail: function(res) {
+        console.log('fail', res);
+      },
+      success: function (res) {
+        console.log('已选择 ' + res.localIds.length + ' 张图片');
+        document.querySelector('#chooseImageResult').setAttribute('src', res.localIds[0])
+      }
+    });
+  };
+      wx.miniProgram.onLifeCycleEvent(function(res) {
+//         alert('receive data' + JSON.stringify(res));
+        console.log("onDataFromAppService", res);
+      })
+      document.addEventListener('WeixinJSBridgeReady', function() {
+        WeixinJSBridge.on('onPageStateChange', function(res) {
+          console.log('onPageStateChange', res)
+        })
+        WeixinJSBridge.on("onDataFromAppService", function(res) {
+          console.log("onDataFromAppService", res);
+        });
+      }, false);
+      window.setInterval(function() {
+        console.log('in inertval', Date.now())
+      }, 2000)
+    </script>
+    
+</html>
+
+
