@@ -23,9 +23,13 @@
     <div><script>document.write(localStorage.getItem('reLaunch'));</script><</div>
     <div><script>document.write(navigator.userAgent);</script><</div>
 
+    <h3>测试onPageStateChange</h3>
+    <span class="desc">退后台active:false，回到前台active:true</span><br>
+
+
     <h3>测试pushState</h3>
     <span class="desc">点击按钮后，当前地址发生改变，但不发生跳转，当前页其他功能均正常</span><br>
-    <button class="weui-btn weui-btn_primary" id="pushState">pushState</button>
+    <div id="currentVal" style="word-break: break-all;"></div>
 
     <h3>获取当前页面地址</h3>
     <span class="desc">点击弹出当前页面地址</span><br>
@@ -147,9 +151,11 @@
     document.addEventListener('WeixinJSBridgeReady', function() {
         WeixinJSBridge.on('onPageStateChange', function(res) {
             console.log('onPageStateChange', res)
+            document.getElementById('currentVal').innerHTML = res;
         })
         WeixinJSBridge.on("onDataFromAppService", function(res) {
             console.log("onDataFromAppService", res);
+            document.getElementById('currentVal').innerHTML = res;
         });
         }, false);
         window.setInterval(function() {
