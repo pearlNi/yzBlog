@@ -39,6 +39,10 @@
     <span class="desc">跳转到指定页面</span><br>
     <a href="../backgroundAudio/backgroundAudio.html" class="weui-btn weui-btn_primary">backgroundAudio.html</a>
 
+    <h3>测试分享</h3>
+    <span class="desc">分享到会话</span><br>
+    <button class="weui-btn weui-btn_primary" id="share">分享</button>
+
     <h3>测试iframe</h3>
     <span class="desc">iframe内嵌的页面正常展示</span><br>
     <iframe id="mapPage" width="100%" height="100px" frameborder=0 src="https://apis.map.qq.com/tools/locpicker?search=1&type=1&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp">
@@ -131,14 +135,14 @@
         window.onhashchange = function() {
         console.log('hashchange', location.hash)
         }
-    document.getElementById('changeHash').addEventListener('click', function() {
+    document.getElementById('changeHash1').addEventListener('click', function() {
         location.hash = location.hash.replace('#', '') === 'a' ? 'b' : 'a'
     })
 
-    wx.miniProgram.onLifeCycleEvent(function(res) {
-        // alert('receive data' + JSON.stringify(res));
-        console.log("onDataFromAppService", res);
-    })
+    // wx.miniProgram.onLifeCycleEvent(function(res) {
+    //     // alert('receive data' + JSON.stringify(res));
+    //     console.log("onDataFromAppService", res);
+    // })
     document.addEventListener('WeixinJSBridgeReady', function() {
         WeixinJSBridge.on('onPageStateChange', function(res) {
             console.log('onPageStateChange', res)
