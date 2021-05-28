@@ -448,71 +448,71 @@ wx.ready(function () {
 
   // 8 界面操作接口
   // 8.1 隐藏右上角菜单
-  document.querySelector('#hideOptionMenu').onclick = function () {
-    wx.hideOptionMenu();
-  };
+  // document.querySelector('#hideOptionMenu').onclick = function () {
+  //   wx.hideOptionMenu();
+  // };
 
   // 8.2 显示右上角菜单
-  document.querySelector('#showOptionMenu').onclick = function () {
-    wx.showOptionMenu();
-  };
+  // document.querySelector('#showOptionMenu').onclick = function () {
+  //   wx.showOptionMenu();
+  // };
 
   // 8.3 批量隐藏菜单项
-  document.querySelector('#hideMenuItems').onclick = function () {
-    wx.hideMenuItems({
-      menuList: [
-        'menuItem:readMode', // 阅读模式
-        'menuItem:share:timeline', // 分享到朋友圈
-        'menuItem:copyUrl' // 复制链接
-      ],
-      success: function (res) {
-        alert('已隐藏“阅读模式”，“分享到朋友圈”，“复制链接”等按钮');
-      },
-      fail: function (res) {
-        alert(JSON.stringify(res));
-      }
-    });
-  };
+  // document.querySelector('#hideMenuItems').onclick = function () {
+  //   wx.hideMenuItems({
+  //     menuList: [
+  //       'menuItem:readMode', // 阅读模式
+  //       'menuItem:share:timeline', // 分享到朋友圈
+  //       'menuItem:copyUrl' // 复制链接
+  //     ],
+  //     success: function (res) {
+  //       alert('已隐藏“阅读模式”，“分享到朋友圈”，“复制链接”等按钮');
+  //     },
+  //     fail: function (res) {
+  //       alert(JSON.stringify(res));
+  //     }
+  //   });
+  // };
 
   // 8.4 批量显示菜单项
-  document.querySelector('#showMenuItems').onclick = function () {
-    wx.showMenuItems({
-      menuList: [
-        'menuItem:readMode', // 阅读模式
-        'menuItem:share:timeline', // 分享到朋友圈
-        'menuItem:copyUrl' // 复制链接
-      ],
-      success: function (res) {
-        alert('已显示“阅读模式”，“分享到朋友圈”，“复制链接”等按钮');
-      },
-      fail: function (res) {
-        alert(JSON.stringify(res));
-      }
-    });
-  };
+  // document.querySelector('#showMenuItems').onclick = function () {
+  //   wx.showMenuItems({
+  //     menuList: [
+  //       'menuItem:readMode', // 阅读模式
+  //       'menuItem:share:timeline', // 分享到朋友圈
+  //       'menuItem:copyUrl' // 复制链接
+  //     ],
+  //     success: function (res) {
+  //       alert('已显示“阅读模式”，“分享到朋友圈”，“复制链接”等按钮');
+  //     },
+  //     fail: function (res) {
+  //       alert(JSON.stringify(res));
+  //     }
+  //   });
+  // };
 
   // 8.5 隐藏所有非基本菜单项
-  document.querySelector('#hideAllNonBaseMenuItem').onclick = function () {
-    wx.hideAllNonBaseMenuItem({
-      success: function () {
-        alert('已隐藏所有非基本菜单项');
-      }
-    });
-  };
+  // document.querySelector('#hideAllNonBaseMenuItem').onclick = function () {
+  //   wx.hideAllNonBaseMenuItem({
+  //     success: function () {
+  //       alert('已隐藏所有非基本菜单项');
+  //     }
+  //   });
+  // };
 
   // 8.6 显示所有被隐藏的非基本菜单项
-  document.querySelector('#showAllNonBaseMenuItem').onclick = function () {
-    wx.showAllNonBaseMenuItem({
-      success: function () {
-        alert('已显示所有非基本菜单项');
-      }
-    });
-  };
+  // document.querySelector('#showAllNonBaseMenuItem').onclick = function () {
+  //   wx.showAllNonBaseMenuItem({
+  //     success: function () {
+  //       alert('已显示所有非基本菜单项');
+  //     }
+  //   });
+  // };
 
   // 8.7 关闭当前窗口
-  document.querySelector('#closeWindow').onclick = function () {
-    wx.closeWindow();
-  };
+  // document.querySelector('#closeWindow').onclick = function () {
+  //   wx.closeWindow();
+  // };
 
   // 9 微信原生接口
   // 9.1.1 扫描二维码并返回结果
