@@ -65,14 +65,14 @@ wx.ready(function () {
   //   alert("cookie test values: "+myCookie)
   // };
 
-  // document.querySelector('#launchApplication').onclick = function () {
-  //   wx.invoke('launchApplication', {"appID":"wxidXXXXX", "extInfo":"xx", "parameter" : "param"},function(res) {
-  //       alert(JSON.stringify(res))
-  //   });
-  //   /*wx.invoke('launchApplication', {"schemeUrl":"mapp://articleid=222"},function(res) {
-  //       alert(JSON.stringify(res))
-  //   });*/
-  // };
+  document.querySelector('#launchApplication').onclick = function () {
+    wx.invoke('launchApplication', {"appID":"wxidXXXXX", "extInfo":"xx", "parameter" : "param"},function(res) {
+        alert(JSON.stringify(res))
+    });
+    wx.invoke('launchApplication', {"schemeUrl":"mapp://articleid=222"},function(res) {
+        alert(JSON.stringify(res))
+    });
+  };
 
   // 1 判断当前版本是否支持指定 JS 接口，支持批量判断
   document.querySelector('#checkJsApi').onclick = function () {
@@ -429,9 +429,12 @@ wx.ready(function () {
       success (res) {
         wx.getClipboardData({
           success (res) {
-            console.log(res.data) // data
+            alert(res.data) // data
           }
         })
+      },
+      fail(res){
+        alert(JSON.stringify(res));
       }
     })
   };
@@ -632,7 +635,7 @@ wx.ready(function () {
   };
    // 15.快速输入
    // 15.1 共享收货地址
-   document.querySelector('#menu-address').onclick = function () {
+   document.querySelector('#openAddress').onclick = function () {
     wx.openAddress({
       success: function (res) {
         var userName = res.userName; // 收货人姓名
