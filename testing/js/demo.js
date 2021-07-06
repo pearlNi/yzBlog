@@ -347,11 +347,11 @@ wx.ready(function () {
   // 5.2 图片预览
   document.querySelector('#previewImage').onclick = function () {
     wx.previewImage({
-      current: 'http://img5.douban.com/view/photo/photo/public/p1353993776.jpg',
+      current: 'https://mmbiz.qpic.cn/mmbiz_jpg/M6nr7uuNic7tU2yAMibJrW12C1bFPOo6LIdTibqKIiba4iagQb12ezjGYr8elKcFxGrp3yiaqC1tfTMJ9X45ooYxvjFQ/0?wx_fmt=jpeg',
       urls: [
-        'http://img3.douban.com/view/photo/photo/public/p2152117150.jpg',
-        'http://img5.douban.com/view/photo/photo/public/p1353993776.jpg',
-        'http://img3.douban.com/view/photo/photo/public/p2152134700.jpg'
+        'https://mmbiz.qpic.cn/mmbiz_jpg/M6nr7uuNic7tU2yAMibJrW12C1bFPOo6LIdTibqKIiba4iagQb12ezjGYr8elKcFxGrp3yiaqC1tfTMJ9X45ooYxvjFQ/0?wx_fmt=jpeg',
+        'https://mmbiz.qpic.cn/mmbiz_jpg/M6nr7uuNic7tU2yAMibJrW12C1bFPOo6LIZQYoZECxd70geBu77vmlicqXnEX5AtWPia5F4x04CFyB2bVCzsyHhWEw/0?wx_fmt=jpeg',
+        'https://mmbiz.qpic.cn/mmbiz_jpg/M6nr7uuNic7tU2yAMibJrW12C1bFPOo6LIdTibqKIiba4iagQb12ezjGYr8elKcFxGrp3yiaqC1tfTMJ9X45ooYxvjFQ/0?wx_fmt=jpeg'
       ]
     });
   };
@@ -419,24 +419,6 @@ wx.ready(function () {
         alert(JSON.stringify(res));
       }
     });
-  };
-
-  // 这是个不对外的接口
-  // 6.2 获取/设置系统剪贴板的内容
-  document.querySelector('#getClipboardData').onclick = function () {
-    wx.setClipboardData({
-      data: 'data',
-      success (res) {
-        wx.getClipboardData({
-          success (res) {
-            alert(res.data) // data
-          }
-        })
-      },
-      fail(res){
-        alert(JSON.stringify(res));
-      }
-    })
   };
 
   // 7 地理位置接口
@@ -636,6 +618,7 @@ wx.ready(function () {
    // 15.快速输入
    // 15.1 共享收货地址
    document.querySelector('#openAddress').onclick = function () {
+    console.log('openAddress')
     wx.openAddress({
       success: function (res) {
         var userName = res.userName; // 收货人姓名
