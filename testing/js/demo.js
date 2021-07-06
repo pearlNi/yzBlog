@@ -644,7 +644,11 @@ wx.ready(function () {
         var nationalCode = res.nationalCode; // 收货地址国家码
         var telNumber = res.telNumber; // 收货人手机号码
         alert('收货地址'+ userName+postalCode+provinceName+cityName+countryName+countryName+detailInfo+nationalCode+telNumber)
+      },
+      fail: function (res){
+        alert(JSON.stringify(res));
       }
+
     });
   };
 
