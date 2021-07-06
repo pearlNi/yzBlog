@@ -20,11 +20,12 @@
           <li class="label_item wxapi_index_item"><a class="label_inner" href="#menu-smart">智能接口</a></li>
           <li class="label_item wxapi_index_item"><a class="label_inner" href="#menu-device">设备信息接口</a></li>
           <li class="label_item wxapi_index_item"><a class="label_inner" href="#menu-location">地理位置接口</a></li>
-          <li class="label_item wxapi_index_item"><a class="label_inner" href="#menu-webview">界面操作接口</a></li>
           <li class="label_item wxapi_index_item"><a class="label_inner" href="#menu-scan">微信扫一扫接口</a></li>
           <li class="label_item wxapi_index_item"><a class="label_inner" href="#menu-shopping">微信小店接口</a></li>
           <li class="label_item wxapi_index_item"><a class="label_inner" href="#menu-card">微信卡券接口</a></li>
           <li class="label_item wxapi_index_item"><a class="label_inner" href="#menu-pay">微信支付接口</a></li>
+          <li class="label_item wxapi_index_item"><a class="label_inner" href="#menu-webview">界面操作接口</a></li>
+          <li class="label_item wxapi_index_item"><a class="label_inner" href="#menu-address">快速输入</a></li>
         </ul>
       </div>
       <div class="lbox_close wxapi_form">
@@ -92,28 +93,17 @@
         <h3 id="menu-device">设备信息接口</h3>
         <span class="desc">获取网络状态接口</span>
         <button class="btn btn_primary" id="getNetworkType">getNetworkType</button>
+
+        <!-- 不对外的接口 -->
+        <span class="desc">获取系统剪贴板的内容并弹出弹窗</span>
+        <button class="btn btn_primary" id="getClipboardData">get/setClipboardData</button>
+        
   
         <h3 id="menu-location">地理位置接口</h3>
         <span class="desc">使用微信内置地图查看位置接口</span>
         <button class="btn btn_primary" id="openLocation">openLocation</button>
         <span class="desc">获取地理位置接口</span>
         <button class="btn btn_primary" id="getLocation">getLocation</button>
-<!--   
-        <h3 id="menu-webview">界面操作接口</h3>
-        <span class="desc">隐藏右上角菜单接口</span>
-        <button class="btn btn_primary" id="hideOptionMenu">hideOptionMenu</button>
-        <span class="desc">显示右上角菜单接口</span>
-        <button class="btn btn_primary" id="showOptionMenu">showOptionMenu</button>
-        <span class="desc">关闭当前网页窗口接口</span>
-        <button class="btn btn_primary" id="closeWindow">closeWindow</button>
-        <span class="desc">批量隐藏功能按钮接口</span>
-        <button class="btn btn_primary" id="hideMenuItems">hideMenuItems</button>
-        <span class="desc">批量显示功能按钮接口</span>
-        <button class="btn btn_primary" id="showMenuItems">showMenuItems</button>
-        <span class="desc">隐藏所有非基础按钮接口</span>
-        <button class="btn btn_primary" id="hideAllNonBaseMenuItem">hideAllNonBaseMenuItem</button>
-        <span class="desc">显示所有功能按钮接口</span>
-        <button class="btn btn_primary" id="showAllNonBaseMenuItem">showAllNonBaseMenuItem</button> -->
   
         <h3 id="menu-scan">微信扫一扫</h3>
         <span class="desc">调起微信扫一扫接口</span>
@@ -135,6 +125,34 @@
         <h3 id="menu-pay">微信支付接口</h3>
         <span class="desc">发起一个微信支付请求</span>
         <button class="btn btn_primary" id="chooseWXPay">chooseWXPay</button>
+
+        <!-- 以下是一些不对外的接口 -->
+        <h3 id="menu-pay">设备接口</h3>
+        <span class="desc">获取系统剪贴板的内容</span>
+
+        <!-- 以下是不支持的接口 -->
+          
+        <h3 id="menu-webview">界面操作接口（不支持，点击无反应或显示没权限）</h3>
+        <span class="desc">隐藏右上角菜单接口</span>
+        <button class="btn btn_primary" id="hideOptionMenu">hideOptionMenu</button>
+        <span class="desc">显示右上角菜单接口</span>
+        <button class="btn btn_primary" id="showOptionMenu">showOptionMenu</button>
+        <span class="desc">关闭当前网页窗口接口</span>
+        <button class="btn btn_primary" id="closeWindow">closeWindow</button>
+        <span class="desc">批量隐藏功能按钮接口</span>
+        <button class="btn btn_primary" id="hideMenuItems">hideMenuItems</button>
+        <span class="desc">批量显示功能按钮接口</span>
+        <button class="btn btn_primary" id="showMenuItems">showMenuItems</button>
+        <span class="desc">隐藏所有非基础按钮接口</span>
+        <button class="btn btn_primary" id="hideAllNonBaseMenuItem">hideAllNonBaseMenuItem</button>
+        <span class="desc">显示所有功能按钮接口</span>
+        <button class="btn btn_primary" id="showAllNonBaseMenuItem">showAllNonBaseMenuItem</button>
+
+        <h3 id="menu-address"></h3>
+        <span class="desc">共享收货地址（不支持）</span>
+        <button class="btn btn_primary" id="openAddress">openAddress</button>
+        
+
       </div>
     </div>
   </body>
@@ -197,7 +215,36 @@
       'openProductSpecificView',
       'addCard',
       'chooseCard',
-      'openCard'
+      'openCard',
+
+      'batchAddCard',
+      'batchViewCard',
+
+      'getBrandWCPayRequest',
+      'invokeMiniProgramAPI',
+
+      'startMonitoringBeacons',
+      'stopMonitoringBeacons',
+
+      'openFileChooser',
+      'openUrlWithExtraWebview',
+      'uploadMediaFile',
+
+      'nfcConnect',
+      'nfcIsConnect',
+      'nfcTransceive',
+      'nfcBatchTransceive',
+      'nfcGetId',
+      'nfcGetInfo',
+      'nfcCheckState',
+
+      'internelWxFaceVerify',
+      'openBusinessView',
+      'showSmileyPanel',
+      'showKeyboard',
+
+      'getClipboardData',
+      'setClipboardData',
     ]
   });
 

@@ -421,6 +421,21 @@ wx.ready(function () {
     });
   };
 
+  // 这是个不对外的接口
+  // 6.2 获取/设置系统剪贴板的内容
+  document.querySelector('#getClipboardData').onclick = function () {
+    wx.setClipboardData({
+      data: 'data',
+      success (res) {
+        wx.getClipboardData({
+          success (res) {
+            console.log(res.data) // data
+          }
+        })
+      }
+    })
+  };
+
   // 7 地理位置接口
   // 7.1 查看地理位置
   document.querySelector('#openLocation').onclick = function () {
@@ -448,71 +463,71 @@ wx.ready(function () {
 
   // 8 界面操作接口
   // 8.1 隐藏右上角菜单
-  // document.querySelector('#hideOptionMenu').onclick = function () {
-  //   wx.hideOptionMenu();
-  // };
+  document.querySelector('#hideOptionMenu').onclick = function () {
+    wx.hideOptionMenu();
+  };
 
   // 8.2 显示右上角菜单
-  // document.querySelector('#showOptionMenu').onclick = function () {
-  //   wx.showOptionMenu();
-  // };
+  document.querySelector('#showOptionMenu').onclick = function () {
+    wx.showOptionMenu();
+  };
 
   // 8.3 批量隐藏菜单项
-  // document.querySelector('#hideMenuItems').onclick = function () {
-  //   wx.hideMenuItems({
-  //     menuList: [
-  //       'menuItem:readMode', // 阅读模式
-  //       'menuItem:share:timeline', // 分享到朋友圈
-  //       'menuItem:copyUrl' // 复制链接
-  //     ],
-  //     success: function (res) {
-  //       alert('已隐藏“阅读模式”，“分享到朋友圈”，“复制链接”等按钮');
-  //     },
-  //     fail: function (res) {
-  //       alert(JSON.stringify(res));
-  //     }
-  //   });
-  // };
+  document.querySelector('#hideMenuItems').onclick = function () {
+    wx.hideMenuItems({
+      menuList: [
+        'menuItem:readMode', // 阅读模式
+        'menuItem:share:timeline', // 分享到朋友圈
+        'menuItem:copyUrl' // 复制链接
+      ],
+      success: function (res) {
+        alert('已隐藏“阅读模式”，“分享到朋友圈”，“复制链接”等按钮');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+  };
 
   // 8.4 批量显示菜单项
-  // document.querySelector('#showMenuItems').onclick = function () {
-  //   wx.showMenuItems({
-  //     menuList: [
-  //       'menuItem:readMode', // 阅读模式
-  //       'menuItem:share:timeline', // 分享到朋友圈
-  //       'menuItem:copyUrl' // 复制链接
-  //     ],
-  //     success: function (res) {
-  //       alert('已显示“阅读模式”，“分享到朋友圈”，“复制链接”等按钮');
-  //     },
-  //     fail: function (res) {
-  //       alert(JSON.stringify(res));
-  //     }
-  //   });
-  // };
+  document.querySelector('#showMenuItems').onclick = function () {
+    wx.showMenuItems({
+      menuList: [
+        'menuItem:readMode', // 阅读模式
+        'menuItem:share:timeline', // 分享到朋友圈
+        'menuItem:copyUrl' // 复制链接
+      ],
+      success: function (res) {
+        alert('已显示“阅读模式”，“分享到朋友圈”，“复制链接”等按钮');
+      },
+      fail: function (res) {
+        alert(JSON.stringify(res));
+      }
+    });
+  };
 
   // 8.5 隐藏所有非基本菜单项
-  // document.querySelector('#hideAllNonBaseMenuItem').onclick = function () {
-  //   wx.hideAllNonBaseMenuItem({
-  //     success: function () {
-  //       alert('已隐藏所有非基本菜单项');
-  //     }
-  //   });
-  // };
+  document.querySelector('#hideAllNonBaseMenuItem').onclick = function () {
+    wx.hideAllNonBaseMenuItem({
+      success: function () {
+        alert('已隐藏所有非基本菜单项');
+      }
+    });
+  };
 
   // 8.6 显示所有被隐藏的非基本菜单项
-  // document.querySelector('#showAllNonBaseMenuItem').onclick = function () {
-  //   wx.showAllNonBaseMenuItem({
-  //     success: function () {
-  //       alert('已显示所有非基本菜单项');
-  //     }
-  //   });
-  // };
+  document.querySelector('#showAllNonBaseMenuItem').onclick = function () {
+    wx.showAllNonBaseMenuItem({
+      success: function () {
+        alert('已显示所有非基本菜单项');
+      }
+    });
+  };
 
   // 8.7 关闭当前窗口
-  // document.querySelector('#closeWindow').onclick = function () {
-  //   wx.closeWindow();
-  // };
+  document.querySelector('#closeWindow').onclick = function () {
+    wx.closeWindow();
+  };
 
   // 9 微信原生接口
   // 9.1.1 扫描二维码并返回结果
@@ -615,6 +630,23 @@ wx.ready(function () {
       }
     });
   };
+   // 15.快速输入
+   // 15.1 共享收货地址
+   document.querySelector('#menu-address').onclick = function () {
+    wx.openAddress({
+      success: function (res) {
+        var userName = res.userName; // 收货人姓名
+        var postalCode = res.postalCode; // 邮编
+        var provinceName = res.provinceName; // 国标收货地址第一级地址（省）
+        var cityName = res.cityName; // 国标收货地址第二级地址（市）
+        var countryName = res.countryName; // 国标收货地址第三级地址（国家）
+        var detailInfo = res.detailInfo; // 详细收货地址信息
+        var nationalCode = res.nationalCode; // 收货地址国家码
+        var telNumber = res.telNumber; // 收货人手机号码
+        alert('收货地址'+ userName+postalCode+provinceName+cityName+countryName+countryName+detailInfo+nationalCode+telNumber)
+      }
+    });
+  };
 
   var shareData = {
     title: '微信JS-SDK Demo',
@@ -637,5 +669,7 @@ wx.ready(function () {
 wx.error(function (res) {
   //alert(res.errMsg);
 });
+
+
 
 
