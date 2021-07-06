@@ -79,7 +79,8 @@ wx.ready(function () {
     wx.checkJsApi({
       jsApiList: [
         'getNetworkType',
-        'previewImage'
+        'previewImage',
+        'chooseImage'
       ],
       success: function (res) {
         alert(JSON.stringify(res));
