@@ -65,14 +65,14 @@ wx.ready(function () {
   //   alert("cookie test values: "+myCookie)
   // };
 
-  document.querySelector('#launchApplication').onclick = function () {
-    wx.invoke('launchApplication', {"appID":"wxidXXXXX", "extInfo":"xx", "parameter" : "param"},function(res) {
-        alert(JSON.stringify(res))
-    });
-    wx.invoke('launchApplication', {"schemeUrl":"mapp://articleid=222"},function(res) {
-        alert(JSON.stringify(res))
-    });
-  };
+  // document.querySelector('#launchApplication').onclick = function () {
+  //   wx.invoke('launchApplication', {"appID":"wxidXXXXX", "extInfo":"xx", "parameter" : "param"},function(res) {
+  //       alert(JSON.stringify(res))
+  //   });
+  //   /*wx.invoke('launchApplication', {"schemeUrl":"mapp://articleid=222"},function(res) {
+  //       alert(JSON.stringify(res))
+  //   });*/
+  // };
 
   // 1 判断当前版本是否支持指定 JS 接口，支持批量判断
   document.querySelector('#checkJsApi').onclick = function () {
@@ -347,11 +347,11 @@ wx.ready(function () {
   // 5.2 图片预览
   document.querySelector('#previewImage').onclick = function () {
     wx.previewImage({
-      current: 'https://mmbiz.qpic.cn/mmbiz_jpg/M6nr7uuNic7tU2yAMibJrW12C1bFPOo6LIdTibqKIiba4iagQb12ezjGYr8elKcFxGrp3yiaqC1tfTMJ9X45ooYxvjFQ/0?wx_fmt=jpeg',
+      current: 'http://img5.douban.com/view/photo/photo/public/p1353993776.jpg',
       urls: [
-        'https://mmbiz.qpic.cn/mmbiz_jpg/M6nr7uuNic7tU2yAMibJrW12C1bFPOo6LIdTibqKIiba4iagQb12ezjGYr8elKcFxGrp3yiaqC1tfTMJ9X45ooYxvjFQ/0?wx_fmt=jpeg',
-        'https://mmbiz.qpic.cn/mmbiz_jpg/M6nr7uuNic7tU2yAMibJrW12C1bFPOo6LIZQYoZECxd70geBu77vmlicqXnEX5AtWPia5F4x04CFyB2bVCzsyHhWEw/0?wx_fmt=jpeg',
-        'https://mmbiz.qpic.cn/mmbiz_jpg/M6nr7uuNic7tU2yAMibJrW12C1bFPOo6LIdTibqKIiba4iagQb12ezjGYr8elKcFxGrp3yiaqC1tfTMJ9X45ooYxvjFQ/0?wx_fmt=jpeg'
+        'http://img3.douban.com/view/photo/photo/public/p2152117150.jpg',
+        'http://img5.douban.com/view/photo/photo/public/p1353993776.jpg',
+        'http://img3.douban.com/view/photo/photo/public/p2152134700.jpg'
       ]
     });
   };
@@ -510,9 +510,9 @@ wx.ready(function () {
   };
 
   // 8.7 关闭当前窗口
-  document.querySelector('#closeWindow').onclick = function () {
-    wx.closeWindow();
-  };
+  // document.querySelector('#closeWindow').onclick = function () {
+  //   wx.closeWindow();
+  // };
 
   // 9 微信原生接口
   // 9.1.1 扫描二维码并返回结果
@@ -615,28 +615,6 @@ wx.ready(function () {
       }
     });
   };
-   // 15.快速输入
-   // 15.1 共享收货地址
-   document.querySelector('#openAddress').onclick = function () {
-    console.log('openAddress')
-    wx.openAddress({
-      success: function (res) {
-        var userName = res.userName; // 收货人姓名
-        var postalCode = res.postalCode; // 邮编
-        var provinceName = res.provinceName; // 国标收货地址第一级地址（省）
-        var cityName = res.cityName; // 国标收货地址第二级地址（市）
-        var countryName = res.countryName; // 国标收货地址第三级地址（国家）
-        var detailInfo = res.detailInfo; // 详细收货地址信息
-        var nationalCode = res.nationalCode; // 收货地址国家码
-        var telNumber = res.telNumber; // 收货人手机号码
-        alert('收货地址'+ userName+postalCode+provinceName+cityName+countryName+countryName+detailInfo+nationalCode+telNumber)
-      },
-      fail: function (res){
-        alert(JSON.stringify(res));
-      }
-
-    });
-  };
 
   var shareData = {
     title: '微信JS-SDK Demo',
@@ -659,7 +637,5 @@ wx.ready(function () {
 wx.error(function (res) {
   //alert(res.errMsg);
 });
-
-
 
 

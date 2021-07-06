@@ -25,7 +25,6 @@
           <li class="label_item wxapi_index_item"><a class="label_inner" href="#menu-card">微信卡券接口</a></li>
           <li class="label_item wxapi_index_item"><a class="label_inner" href="#menu-pay">微信支付接口</a></li>
           <li class="label_item wxapi_index_item"><a class="label_inner" href="#menu-webview">界面操作接口</a></li>
-          <li class="label_item wxapi_index_item"><a class="label_inner" href="#menu-address">快速输入</a></li>
         </ul>
       </div>
       <div class="lbox_close wxapi_form">
@@ -99,7 +98,7 @@
         <button class="btn btn_primary" id="openLocation">openLocation</button>
         <span class="desc">获取地理位置接口</span>
         <button class="btn btn_primary" id="getLocation">getLocation</button>
-  
+
         <h3 id="menu-scan">微信扫一扫</h3>
         <span class="desc">调起微信扫一扫接口</span>
         <button class="btn btn_primary" id="scanQRCode0">scanQRCode(微信处理结果)</button>
@@ -121,9 +120,9 @@
         <span class="desc">发起一个微信支付请求</span>
         <button class="btn btn_primary" id="chooseWXPay">chooseWXPay</button>
 
-        <!-- 以下是不支持的接口 -->
+        <!-- 不支持的接口 -->
           
-        <h3 id="menu-webview">界面操作接口（不支持，点击无反应或显示没权限）</h3>
+        <h3 id="menu-webview">界面操作接口（不支持，点击无反应或返回无权限）</h3>
         <span class="desc">隐藏右上角菜单接口</span>
         <button class="btn btn_primary" id="hideOptionMenu">hideOptionMenu</button>
         <span class="desc">显示右上角菜单接口</span>
@@ -138,12 +137,6 @@
         <button class="btn btn_primary" id="hideAllNonBaseMenuItem">hideAllNonBaseMenuItem</button>
         <span class="desc">显示所有功能按钮接口</span>
         <button class="btn btn_primary" id="showAllNonBaseMenuItem">showAllNonBaseMenuItem</button>
-
-        <h3 id="menu-address"></h3>
-        <span class="desc">共享收货地址（不支持）</span>
-        <button class="btn btn_primary" id="openAddress">openAddress</button>
-        
-
       </div>
     </div>
   </body>
@@ -177,6 +170,10 @@
       'onMenuShareQQ',
       'onMenuShareWeibo',
       'onMenuShareQZone',
+      'hideMenuItems',
+      'showMenuItems',
+      'hideAllNonBaseMenuItem',
+      'showAllNonBaseMenuItem',
       'translateVoice',
       'startRecord',
       'stopRecord',
@@ -194,30 +191,20 @@
       'getNetworkType',
       'openLocation',
       'getLocation',
+      'hideOptionMenu',
+      'showOptionMenu',
       'closeWindow',
       'scanQRCode',
       'chooseWXPay',
       'openProductSpecificView',
       'addCard',
       'chooseCard',
-      'openCard',
-
-      // 不支持
-      'hideOptionMenu',
-      'showOptionMenu',
-      'hideMenuItems',
-      'showMenuItems',
-      'hideAllNonBaseMenuItem',
-      'showAllNonBaseMenuItem',
-      'openAddress'
-
+      'openCard'
     ]
   });
 
 </script>
 <script src="../js/demo.js"></script>
 <script src="../js/zepto.min.js"></script>
-<!-- webview页面上显示调试面板 -->
-<script type="text/javascript" src="https://res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/2.5.1/vconsole.min.js"></script>
 </html>
 
