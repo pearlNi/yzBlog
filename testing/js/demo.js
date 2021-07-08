@@ -358,7 +358,7 @@ wx.ready(function () {
   };
 
   // 5.3 上传图片
-  document.querySelector('#uploadImage').onclick = function () {
+  document.querySelector('#uploadImage1').onclick = function () {
     if (images.localId.length == 0) {
       alert('请先使用 chooseImage 接口选择图片');
       return;
@@ -368,10 +368,9 @@ wx.ready(function () {
     function upload() {
       wx.uploadImage({
         localId: images.localId[i],
-        isShowProgressTips: 1,
         success: function (res) {
           i++;
-          //alert('已上传：' + i + '/' + length);
+          // alert('已上传：' + i + '/' + length);
           images.serverId.push(res.serverId);
           if (i < length) {
             upload();
@@ -386,7 +385,7 @@ wx.ready(function () {
   };
 
   // 5.4 下载图片
-  document.querySelector('#downloadImage').onclick = function () {
+  document.querySelector('#downloadImage1').onclick = function () {
     if (images.serverId.length === 0) {
       alert('请先使用 uploadImage 上传图片');
       return;
@@ -398,7 +397,7 @@ wx.ready(function () {
         serverId: images.serverId[i],
         success: function (res) {
           i++;
-          alert('已下载：' + i + '/' + length);
+          // alert('已下载：' + i + '/' + length);
           images.localId.push(res.localId);
           if (i < length) {
             download();
@@ -408,6 +407,60 @@ wx.ready(function () {
     }
     download();
   };
+
+  // 不显示进度提示，由自己弹出进度弹窗
+  // 5.3 上传图片
+    document.querySelector('#uploadImage2').onclick = function () {
+      if (images.localId.length == 0) {
+        alert('请先使用 chooseImage 接口选择图片');
+        return;
+      }
+      var i = 0, length = images.localId.length;
+      images.serverId = [];
+      function upload() {
+        wx.uploadImage({
+          localId: images.localId[i],
+          isShowProgressTips: 0,
+          success: function (res) {
+            i++;
+            alert('已上传：' + i + '/' + length);
+            images.serverId.push(res.serverId);
+            if (i < length) {
+              upload();
+            }
+          },
+          fail: function (res) {
+            alert(JSON.stringify(res));
+          }
+        });
+      }
+      upload();
+    };
+  
+    // 5.4 下载图片
+    document.querySelector('#downloadImage2').onclick = function () {
+      if (images.serverId.length === 0) {
+        alert('请先使用 uploadImage2 上传图片');
+        return;
+      }
+      var i = 0, length = images.serverId.length;
+      images.localId = [];
+      function download() {
+        wx.downloadImage({
+          serverId: images.serverId[i],
+          isShowProgressTips: 0,
+          success: function (res) {
+            i++;
+            alert('已下载：' + i + '/' + length);
+            images.localId.push(res.localId);
+            if (i < length) {
+              download();
+            }
+          }
+        });
+      }
+      download();
+    };
 
   // 6 设备信息接口
   // 6.1 获取当前网络状态
